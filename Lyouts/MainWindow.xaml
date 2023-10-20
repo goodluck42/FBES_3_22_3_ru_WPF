@@ -1,0 +1,170 @@
+﻿<Window x:Class="Lyouts.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lyouts"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="600"
+        Width="900"
+        MinHeight="600"
+        MinWidth="900"
+        FontSize="20"
+        FontFamily="Comic Sans MS"
+        FontWeight="Bold">
+    <!--Grid layout-->
+    <!--<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0"
+                Grid.Row="0"
+                BorderBrush="#b81661"
+                BorderThickness="2"
+                CornerRadius="20">
+            <TextBlock Text="Row0 Column0 content"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </Border>
+        
+        <Border Grid.Column="1"
+                Grid.Row="0"
+                BorderBrush="#b81661"
+                BorderThickness="2">
+        <TextBlock Text="Row0 Column1 content"/>
+        </Border>
+        <Border Grid.Column="0"
+                Grid.Row="1"
+                BorderBrush="#b81661"
+                BorderThickness="2">
+        <TextBlock Text="Row1 Column0 content"/>
+        </Border>
+        <Border Grid.Column="1"
+                Grid.Row="1"
+                BorderBrush="#b81661"
+                BorderThickness="2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" Grid.Column="0"
+                    BorderBrush="DeepPink"
+                    BorderThickness="1"
+                    Background="Aqua">
+                <TextBlock>Item1</TextBlock>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="1"
+                    BorderBrush="DeepPink"
+                    BorderThickness="1">
+                <TextBlock>Item2</TextBlock>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2"
+                    BorderBrush="DeepPink"
+                    BorderThickness="1">
+                <TextBlock>Item3</TextBlock>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0"
+                    BorderBrush="DeepPink"
+                    BorderThickness="1">
+                <TextBlock>Item4</TextBlock>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1"
+                    BorderBrush="DeepPink"
+                    BorderThickness="1">
+                <TextBlock>Item5</TextBlock>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2"
+                    BorderBrush="DeepPink"
+                    BorderThickness="1">
+                <TextBlock>Item6</TextBlock>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0"
+                    BorderBrush="DeepPink"
+                    BorderThickness="1">
+                <TextBlock>Item7</TextBlock>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="1"
+                    BorderBrush="DeepPink"
+                    BorderThickness="1">
+                <TextBlock>Item8</TextBlock>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2"
+                    BorderBrush="DeepPink"
+                    BorderThickness="1">
+                <TextBlock>Item9</TextBlock>
+            </Border>
+        </Grid>
+        </Border>
+    </Grid>
+    -->
+    <!--<StackPanel Orientation="Vertical">
+        <Border Margin="20"
+                BorderBrush="Aqua"
+                BorderThickness="10 20">
+            <TextBlock Text="Element1"  />
+        </Border>
+        <Border Padding="20"
+                BorderBrush="Aqua"
+                BorderThickness="5 10 15 20">
+            <TextBlock Text="Element2"  />
+        </Border>
+        <Border Padding="20"
+                BorderBrush="Aqua"
+                BorderThickness="5"
+                HorizontalAlignment="Center">
+            <TextBlock Text="Element3"  />
+        </Border>
+    </StackPanel>
+    -->
+    <!--<WrapPanel Orientation="Vertical">
+        <Border Padding="20"
+                BorderBrush="Aqua"
+                BorderThickness="1"
+                HorizontalAlignment="Center">
+            <TextBlock Text="Element1"  />
+        </Border>
+        <Border Padding="20"
+                BorderBrush="Aqua"
+                BorderThickness="1"
+                Margin="0 5 0 5">
+            <TextBlock Text="Element2"  />
+        </Border>
+        <Border Padding="20"
+                BorderBrush="Aqua"
+                BorderThickness="1">
+            <TextBlock Text="Element3"  />
+        </Border>
+    </WrapPanel>
+    -->
+    
+    <!--<DockPanel>
+        <Button DockPanel.Dock="Left" Content="Button1"/>
+        <Button DockPanel.Dock="Top" Content="Button2"/>
+        <Button DockPanel.Dock="Right" Content="Button3"/>
+        <Button DockPanel.Dock="Bottom" Content="Button4"/>
+    </DockPanel>
+    -->
+    <!-- Buttons -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <Button Grid.Row="0" Content="Click me!" Click="ButtonBase_OnClick"/>
+        <TextBlock Grid.Row="1" x:Name="TextBlock" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>
