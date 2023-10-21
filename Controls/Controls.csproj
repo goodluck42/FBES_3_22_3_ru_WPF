@@ -9,4 +9,11 @@
     </PropertyGroup>
 
 
+    <ItemGroup>
+      <None Remove="Images\RedCat.jpg" />
+      <Resource Include="Images\RedCat.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Resource>
+    </ItemGroup>
+
 </Project>
