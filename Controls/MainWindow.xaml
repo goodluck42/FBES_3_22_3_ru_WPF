@@ -1,0 +1,156 @@
+﻿<!-- Button + -->
+<!-- TextBox + -->
+<!-- PasswordBox + -->
+<!-- RadioButton + -->
+<!-- Label + -->
+<!-- Image X -->
+<!-- Slider + -->
+<!-- ProgressBar + -->
+<!-- Menu + -->
+<!-- ScrollBar +  -->
+<!-- ComboBox + -->
+<!-- Expander + -->
+<!-- ListBox + -->
+<!-- TreeView + -->
+<!-- ListView + -->
+<!-- TabControl + -->
+<!-- ToolBar -->
+<!-- ToolBarTray -->
+<!-- TextBlock + -->
+
+<Window x:Class="Controls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Controls"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="600"
+        Width="900"
+        WindowState="Maximized" KeyDown="MainWindow_OnKeyDown">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Height="32">
+            <MenuItem Header="File">
+                <MenuItem Header="New" Background="Red"/>
+                <MenuItem Header="Open" Background="Orange"/>
+                <MenuItem Header="Save" Background="Yellow"/>
+                <Separator Background="Black"/>
+                <MenuItem Header="Save" Background="Green"/>
+            </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem Header="Zoom">
+                    <MenuItem Header="Zoom In"/>
+                    <MenuItem Header="Zoom Out"/>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <WrapPanel Grid.Row="0"
+                       Grid.Column="0">
+                <RadioButton GroupName="rbgroup1" Content="Radio1"/>
+                <RadioButton GroupName="rbgroup1" Content="Radio2"/>
+                <RadioButton GroupName="rbgroup2" Content="Radio3"/>
+                <RadioButton GroupName="rbgroup2" Content="Radio4"/>
+                <RadioButton>
+                    <StackPanel>
+                        <TextBlock>
+                            <Run Text="Radio5"/>
+                        </TextBlock>
+                    </StackPanel>
+                </RadioButton>
+            </WrapPanel>
+            <WrapPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                <Label>TestLabel</Label>
+                <TextBlock TextWrapping="Wrap"></TextBlock>
+                <TabControl>
+                    <TabItem Header="Youtube - Never ghonna give u up">
+                        <TextBlock>Youtube video</TextBlock>
+                    </TabItem>
+                    <TabItem Header="Stackoverflow - C++ how to declare variable">
+                        <TextBlock>Stackoverflow site</TextBlock>
+                    </TabItem>
+                </TabControl>
+            </WrapPanel>
+            <Image x:Name="CatImage" Grid.Row="0" Grid.Column="2"></Image>
+            
+            <WrapPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+                <Slider Width="120" Minimum="0" Maximum="100" ValueChanged="RangeBase_OnValueChanged"/>
+                <TextBlock x:Name="SliderValue" />
+                <TreeView>
+                    <TreeViewItem Header="Folder">
+                        <TreeViewItem Header="File1" />
+                        <TreeViewItem Header="File2" />
+                        <TreeViewItem Header="Folder2">
+                            <TreeViewItem Header="File3" />
+                            <TreeViewItem Header="File4" />
+                        </TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
+            </WrapPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <ProgressBar Height="32" x:Name="TestProgressBar" Margin="0 0 0 5"/>
+                <Button Content="Increase" Margin="0 0 0 5" Click="ButtonBase_Increase_OnClick"/>
+                <Button Content="Reset" Click="ButtonBase_Reset_OnClick"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="2">
+                <PasswordBox x:Name="MyPasswordBox" Margin="5 5 0 0" PasswordChar="&quot;"/>
+                <Button Content="Show Password" Click="ButtonBase_ShowPassword_OnClick" />
+                <TextBlock x:Name="PasswordTextBlock"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="0">
+                <!-- <ScrollBar Height="100" Width="20"></ScrollBar> -->
+                <ScrollViewer Height="100" VerticalScrollBarVisibility="Visible" CanContentScroll="True">
+                    <WrapPanel Orientation="Vertical">
+                        <Rectangle Width="500" Height="500" Fill="Navy"></Rectangle>
+                        <TextBlock>SampleText!</TextBlock>
+                    </WrapPanel>
+                </ScrollViewer>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical">
+                <ListBox Height="200">
+                    <ListBoxItem>
+                        Item1
+                    </ListBoxItem>
+                        
+                    <ListBoxItem Content="Item2"/>
+                    <ListBoxItem Content="Item3"/>
+                    <ListBoxItem Content="Item4"/>
+                    <ListBoxItem Content="Item5"/>
+                    <ListBoxItem Content="Item6"/>
+                </ListBox>
+                <Expander>
+                    <StackPanel>
+                        <TextBlock>Gender:</TextBlock>
+                        <ComboBox x:Name="GenderComboBox" SelectedIndex="0">
+                            <ComboBoxItem>Male</ComboBoxItem>
+                            <ComboBoxItem>Female</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+            <ListView Grid.Row="2" Grid.Column="2">
+                <ListViewItem >
+                    <CheckBox IsChecked="True"/>
+                </ListViewItem>
+                <ListViewItem >
+                    <CheckBox IsChecked="False"/>
+                </ListViewItem>
+                <ListViewItem >
+                    <CheckBox IsChecked="False"/>
+                </ListViewItem>
+            </ListView>
+        </Grid>
+    </DockPanel>
+    
+</Window>
