@@ -14,8 +14,11 @@
         <DataTemplate DataType="{x:Type vm:LoginViewModel}">
             <v:LoginView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:RegisterViewModel}">
+            <v:RegisterView />
+        </DataTemplate>
     </Window.Resources>
     <Grid>
-        <ContentPresenter Content="{Binding CurrentViewModel}" />
+        <ContentPresenter Content="{Binding CurrentViewModel, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
     </Grid>
 </Window>

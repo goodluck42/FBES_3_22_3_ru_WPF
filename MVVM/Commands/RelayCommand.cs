@@ -9,6 +9,7 @@ public class RelayCommand : ICommand
     {
         _action = action;
     }
+
     public bool CanExecute(object? parameter)
     {
         return true;
@@ -21,7 +22,7 @@ public class RelayCommand : ICommand
             _action(parameter);
         }
     }
-    
+
     public event EventHandler? CanExecuteChanged;
 
     private Action<object?> _action;

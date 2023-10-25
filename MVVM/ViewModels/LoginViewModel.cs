@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
 using MVVM.Commands;
+using MVVM.Messages;
 using MVVM.Models;
 
 namespace MVVM.ViewModels;
@@ -11,22 +12,20 @@ public class LoginViewModel : BaseViewModel
 
     public LoginViewModel()
     {
-        Users = new ObservableCollection<User>();
+        Messenger.Register<SetUserDataMessage>(this, message =>
+        {
+            if (message is SetUserDataMessage currentMessage && message.Sender is RegisterViewModel)
+            {
+                Login = currentMessage.Login;
+                Password = currentMessage.Password;
+            }
+        });
     }
     public string? Login { get; set; }
     public string? Password { get; set; }
     public RelayCommand LoginCommand =>
         _loginCommand ??= new RelayCommand(o =>
         {
-            if (Login != string.Empty && Password != string.Empty)
-            {
-                Users.Add(new User()
-                {
-                    Password = Password,
-                    Login = Login
-                });
-            }
+            //Messenger.Send<ChangeViewModelMessage>(new ChangeViewModelMessage(this, new RegisterViewModel()));
         });
-    
-    public ObservableCollection<User> Users { get; set; }
 }
