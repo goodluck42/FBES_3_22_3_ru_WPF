@@ -7,6 +7,41 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ListBox />
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="ItemListBox"
+                 Grid.Row="0"
+                 Grid.Column="0"
+                 ItemsSource="{Binding Items}"
+                 DisplayMemberPath="Name"
+                 Grid.ColumnSpan="3"/>
+
+        <Button Grid.Row="1"
+                Grid.Column="0"
+                Height="30"
+                Margin="10 5"
+                VerticalAlignment="Center"
+                Content="Add"
+                Command="{Binding AddItemCommand}"/>
+        <Button Grid.Row="1"
+                Grid.Column="1"
+                Height="30"
+                Margin="10 5"
+                VerticalAlignment="Center"
+                Content="Update" />
+        <Button Grid.Row="1"
+                Grid.Column="2"
+                Height="30"
+                Margin="10 5"
+                VerticalAlignment="Center"
+                Content="Remove"
+                Command="{Binding RemoveItemCommand}" CommandParameter="{Binding ElementName=ItemListBox, Path=SelectedItem}" />
     </Grid>
 </UserControl>
