@@ -4,7 +4,7 @@ namespace MVVMLibSample.Messages;
 
 public class ChangeViewModelMessage : Message
 {
-    public ChangeViewModelMessage(object sender, BaseViewModel viewModel) : base(sender)
+    public ChangeViewModelMessage(BaseViewModel viewModel)
     {
         ViewModel = viewModel;
     }

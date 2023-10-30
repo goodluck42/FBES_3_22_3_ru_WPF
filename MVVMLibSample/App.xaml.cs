@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
+using MVVMLibSample.Services;
 using MVVMLibSample.ViewModels;
 using MVVMLibSample.Views;
 
@@ -23,9 +24,14 @@ namespace MVVMLibSample
             base.OnStartup(e);
 
             ServiceCollection = new ServiceCollection();
-            ServiceCollection.AddSingleton<ItemListViewModel>();
-            ServiceCollection.AddSingleton<ItemListViewModel>();
             ServiceCollection.AddSingleton<MainViewModel>();
+            ServiceCollection.AddSingleton<AddItemViewModel>();
+            ServiceCollection.AddSingleton<ItemListViewModel>();
+            ServiceCollection.AddSingleton<UpdateItemViewModel>();
+            
+            ServiceCollection.AddSingleton<ViewModelFactory>();
+            ServiceCollection.AddSingleton<IItemRepository, FileItemRepository>();
+            
             ServiceCollection.AddSingleton<MainView>();
 
             ServiceProvider = ServiceCollection.BuildServiceProvider();

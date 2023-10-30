@@ -2,12 +2,13 @@
 
 namespace MVVMLibSample.Messages;
 
-public class AddItemMessage : Message
+public class ItemMessage : Message
 {
-    public AddItemMessage(object sender, Item item) : base(sender)
+    public ItemMessage(Item item)
     {
         Item = item;
     }
 
     public Item Item { get; }
 }
+

@@ -16,12 +16,21 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <!-- Binding=IEnumerable<Item> -->
         <ListBox x:Name="ItemListBox"
                  Grid.Row="0"
                  Grid.Column="0"
                  ItemsSource="{Binding Items}"
-                 DisplayMemberPath="Name"
-                 Grid.ColumnSpan="3"/>
+                 Grid.ColumnSpan="3">
+            <ListBox.ItemTemplate>
+                <DataTemplate> <!-- Binding=Item -->
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text="{Binding Quantity}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <Button Grid.Row="1"
                 Grid.Column="0"
@@ -29,19 +38,22 @@
                 Margin="10 5"
                 VerticalAlignment="Center"
                 Content="Add"
-                Command="{Binding AddItemCommand}"/>
+                Command="{Binding AddItemCommand}" />
         <Button Grid.Row="1"
                 Grid.Column="1"
                 Height="30"
                 Margin="10 5"
                 VerticalAlignment="Center"
-                Content="Update" />
+                Content="Update"
+                Command="{Binding UpdateItemCommand}"
+                CommandParameter="{Binding ElementName=ItemListBox, Path=SelectedItem}" />
         <Button Grid.Row="1"
                 Grid.Column="2"
                 Height="30"
                 Margin="10 5"
                 VerticalAlignment="Center"
                 Content="Remove"
-                Command="{Binding RemoveItemCommand}" CommandParameter="{Binding ElementName=ItemListBox, Path=SelectedItem}" />
+                Command="{Binding RemoveItemCommand}"
+                CommandParameter="{Binding ElementName=ItemListBox, Path=SelectedItem}" />
     </Grid>
 </UserControl>
