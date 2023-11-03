@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Windows;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using MVVMLibSample.Messages;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,4 +28,12 @@ public partial class MainViewModel : BaseViewModel
 
     [ObservableProperty]
     private BaseViewModel? _currentViewModel;
+
+
+    [RelayCommand]
+
+    public void Test()
+    {
+        MessageBox.Show("Test");
+    }
 }

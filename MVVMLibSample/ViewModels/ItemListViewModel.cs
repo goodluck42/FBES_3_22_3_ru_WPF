@@ -19,10 +19,17 @@ public partial class ItemListViewModel : BaseViewModel
         _itemRepository = itemRepository;
         Items = itemRepository.GetItems();
 
-        WeakReferenceMessenger.Default.Register<ItemMessage, int>(this, ItemTokens.AddItemToken, (sender, message) =>
+
+        _itemRepository.Add(new()
         {
-            _itemRepository.Add(message.Item);
+            Quantity = 3,
+            Name = "test",
+            Created = DateTime.Now,
+            Id = -1
         });
+
+        WeakReferenceMessenger.Default.Register<ItemMessage, int>(this, ItemTokens.AddItemToken,
+            (sender, message) => { _itemRepository.Add(message.Item); });
     }
 
     public IEnumerable<Item> Items { get; set; }
@@ -52,6 +59,19 @@ public partial class ItemListViewModel : BaseViewModel
         {
             WeakReferenceMessenger.Default.Send(new ChangeViewModelMessage(_factory.Create(3)));
             WeakReferenceMessenger.Default.Send(new ItemMessage(item), ItemTokens.SendItemToUpdateViewToken);
+        }
+    }
+
+    [RelayCommand]
+    private void ShowItemData(object? obj)
+    {
+        if (obj is Item item)
+        {
+            MessageBox.Show($"Name: {item.Name} Quantity: {item.Quantity}");
+        }
+        else
+        {
+            MessageBox.Show($"Test");
         }
     }
 }

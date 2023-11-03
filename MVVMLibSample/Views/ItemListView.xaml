@@ -3,9 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:MVVMLibSample.Views"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -17,20 +20,29 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!-- Binding=IEnumerable<Item> -->
-        <ListBox x:Name="ItemListBox"
-                 Grid.Row="0"
-                 Grid.Column="0"
-                 ItemsSource="{Binding Items}"
-                 Grid.ColumnSpan="3">
-            <ListBox.ItemTemplate>
+        <ListView x:Name="ItemListBox"
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  ItemsSource="{Binding Items}"
+                  Grid.ColumnSpan="3">
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="MouseEnter">
+                    <b:InvokeCommandAction Command="{Binding ShowItemDataCommand}" CommandParameter="{Binding}"></b:InvokeCommandAction>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+            <ListView.ItemTemplate>
                 <DataTemplate> <!-- Binding=Item -->
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding Name}" />
-                        <TextBlock Text="{Binding Quantity}" />
+                            <TextBlock x:Name="ItemData">
+                                <Run Text="Name: "></Run>
+                                <Run Text="{Binding Name}"></Run>
+                                <Run Text="Quantity: "></Run>
+                                <Run Text="{Binding Quantity}"></Run>
+                            </TextBlock>
                     </StackPanel>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <Button Grid.Row="1"
                 Grid.Column="0"
