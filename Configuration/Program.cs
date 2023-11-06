@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration.Ini;
 
 var builder = new ConfigurationBuilder();
 
-
+// DO NOT COMMIT CONFIG FILES!
 builder
     .AddJsonFile("config.json")
     .AddIniFile("config.ini")
